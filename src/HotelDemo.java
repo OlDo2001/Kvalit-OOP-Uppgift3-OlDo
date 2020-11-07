@@ -1,16 +1,12 @@
-import java.util.Arrays;
-import java.util.Scanner;
 
 public class HotelDemo {
     public static void main(String[] args) {
-        //Skapa instanser av klassen Hotel
-        Hotel h = new Hotel(); // h1 är referensvariable, skapar ett objekt
-    h.setName();
-    h.setFloors();
-    h.setRooms();
-    h.roomsTotal = h.floors * h.roomsPerFloor;
-    int [] roomsNumbers = h.roomsArray();
-    //h.total(roomsNumbers);
-    Money.discount(Money.summa(h.total(roomsNumbers)),h.total(roomsNumbers));
+
+        Hotel h = new Hotel(); // h är referensvariable, skapar ett objekt
+        System.out.println(h); //skriver ut objekts egenskaper
+        int [] roomsNumbers = h.roomsArray(); //skapa rumsnumeringplan
+        int labels = h.totalLables(roomsNumbers);   //råknar total antal skyltar
+        double summa = Money.summa(labels); //råknar pris före rabbat
+        Money.discount(summa,labels); // räknar pris efter rabbat om det är relevant
     }
 }

@@ -1,59 +1,83 @@
 import java.util.Scanner;
 
 public class Hotel {
-    String name;
-    int floors;
-    int roomsPerFloor;
-    int roomsTotal;
+    private String name;
+    private int floors;
+    private int roomsPerFloor;
+    private int roomsTotal;
 
-    public String setName (){
-        Scanner input = new Scanner(System.in);
-
-        System.out.println("Ange ett hotel namn ");
-        this.name = input.nextLine();
-
-        System.out.println("Hotellet heter " + this.name);
-        return this.name;
+    //Konstruktor
+    public Hotel (){
+        setName();
+        setFloors();
+        setRooms();
     }
-    public int setFloors (){
+    public void setName (){
         Scanner input = new Scanner(System.in);
-
-        System.out.println("Ange antal våningar ");
-        String s = input.nextLine();
-        this.floors = Integer.parseInt(s);
-        System.out.println("Antal våningar är " + this.floors);
-        return this.floors;
+        while (true) {
+            System.out.println("Ange ett hotel namn ");
+            this.name = input.nextLine();
+            if (this.name!= null)
+                break;
+            else {
+                System.out.println("Namnet är tomt. Försök igen!");
+            }
+        }
     }
-    public int setRooms (){
+    public void setFloors (){
+
         Scanner input = new Scanner(System.in);
-
-        System.out.println("Ange antal rum per en våning ");
-        String s = input.nextLine();
-        this.roomsPerFloor = Integer.parseInt(s);
-        System.out.println("Antal rum per en våning  är " + this.roomsPerFloor);
-        return this.roomsPerFloor;
+        while (true) {
+            System.out.println("Ange antal våningar ");
+            String s = input.nextLine();
+            try {
+                this.floors = Integer.parseInt(s);
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("Ej heltal! Försök igen!");
+            }
+        }
 
     }
-    public int [] roomsArray () {
-        int Numbers [] = new int [this.roomsTotal];
+    public void setRooms (){
+
+        Scanner input = new Scanner(System.in);
+        while (true) {
+            System.out.println("Ange antal rum per en våning ");
+            String s = input.nextLine();
+            try {
+                this.roomsPerFloor = Integer.parseInt(s);
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("Ej heltal! Försök igen!");
+            }
+        }
+        this.roomsTotal = this.floors * this.roomsPerFloor;
+
+    }
+    public int[] roomsArray() {
+
+        int[] numbers = new int [this.roomsTotal];
         int x = 0;
+        System.out.println("Rumsnumeringplan:");
         for (int i=1; i<=this.floors; i++){
             for (int j=1; j<=this.roomsPerFloor; j++){
                 if (this.roomsPerFloor>=10 && j<10){
-                    Numbers [x] = Integer.parseInt(Integer.toString(i*10)+Integer.toString(j));
+                    numbers [x] = Integer.parseInt(Integer.toString(i*10)+Integer.toString(j));
                 } else
-                    Numbers [x] = Integer.parseInt(Integer.toString(i)+Integer.toString(j));
-                System.out.print(Numbers[x] + " ");
+                    numbers [x] = Integer.parseInt(Integer.toString(i)+Integer.toString(j));
+                System.out.print(numbers[x] + " ");
                 x++;
             }
             System.out.println();
         }
-        return Numbers;
+        return numbers;
 
     }
-    public int total (int[] array){
+    public int totalLables (int[] array){
         int [] result = new int [10];
         int total = 0;
+
         for (int i = 0; i<this.roomsTotal; i++){
             for (int j=0; j < Integer.toString(array[i]).length(); j++) {
                 if (Integer.toString(array[i]).charAt(j) == '0') result[0]++;
@@ -68,11 +92,18 @@ public class Hotel {
                 if (Integer.toString(array[i]).charAt(j) == '9') result[9]++;
             }
         }
+        System.out.println("Antal siffror specifikation:");
         for (int i = 0; i<10; i++){
             total = total + result [i];
             System.out.println("Antal " + i + ":\t" + result[i]);
         }
         System.out.println("Total antal skyltar är: " + total);
         return total;
+    }
+    @Override
+    public String toString() {
+        return " Hotel '" + this.name + '\'' +
+                " har " + this.floors + " våningar och " +
+                this.roomsPerFloor + " rum per våning.";
     }
 }
