@@ -51,7 +51,7 @@ public class Hotel {
         return Numbers;
 
     }
-    public int [] lableArray (int[] array){
+    public int total (int[] array){
         int [] result = new int [10];
         int total = 0;
         for (int i = 0; i<this.roomsTotal; i++){
@@ -73,6 +73,6 @@ public class Hotel {
             System.out.println("Antal " + i + ":\t" + result[i]);
         }
         System.out.println("Total antal skyltar är: " + total);
-        return result;
+        return total;
     }
 }

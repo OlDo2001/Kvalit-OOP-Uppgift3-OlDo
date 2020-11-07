@@ -10,6 +10,7 @@ public class HotelDemo {
     h.setRooms();
     h.roomsTotal = h.floors * h.roomsPerFloor;
     int [] roomsNumbers = h.roomsArray();
-    h.lableArray(roomsNumbers);
+    //h.total(roomsNumbers);
+    Money.discount(Money.summa(h.total(roomsNumbers)),h.total(roomsNumbers));
     }
 }
