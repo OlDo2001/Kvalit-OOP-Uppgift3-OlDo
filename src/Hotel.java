@@ -12,6 +12,10 @@ public class Hotel {
         setFloors();
         setRooms();
     }
+
+    /**
+     * En instansmetod som anger ett objekt namn genom terminalen
+     */
     public void setName (){
         Scanner input = new Scanner(System.in);
         while (true) {
