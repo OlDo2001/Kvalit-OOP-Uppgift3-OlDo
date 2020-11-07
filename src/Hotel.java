@@ -6,40 +6,40 @@ public class Hotel {
     int roomsPerFloor;
     int roomsTotal;
 
-    public static String getName (Hotel h){
+    public String setName (){
         Scanner input = new Scanner(System.in);
 
         System.out.println("Ange ett hotel namn ");
-        h.name = input.nextLine();
+        this.name = input.nextLine();
 
-        System.out.println("Hotellet heter " + h.name);
-        return h.name;
+        System.out.println("Hotellet heter " + this.name);
+        return this.name;
     }
-    public static int getFloors (Hotel h){
+    public int setFloors (){
         Scanner input = new Scanner(System.in);
 
         System.out.println("Ange antal våningar ");
         String s = input.nextLine();
-        h.floors = Integer.parseInt(s);
-        System.out.println("Antal våningar är " + h.floors);
-        return h.floors;
+        this.floors = Integer.parseInt(s);
+        System.out.println("Antal våningar är " + this.floors);
+        return this.floors;
     }
-    public static int getRooms (Hotel h){
+    public int setRooms (){
         Scanner input = new Scanner(System.in);
 
         System.out.println("Ange antal rum per en våning ");
         String s = input.nextLine();
-        h.roomsPerFloor = Integer.parseInt(s);
-        System.out.println("Antal rum per en våning  är " + h.roomsPerFloor);
-        return h.roomsPerFloor;
+        this.roomsPerFloor = Integer.parseInt(s);
+        System.out.println("Antal rum per en våning  är " + this.roomsPerFloor);
+        return this.roomsPerFloor;
 
     }
-    public static int [] roomsArray (Hotel h) {
-        int Numbers [] = new int [h.roomsTotal];
+    public int [] roomsArray () {
+        int Numbers [] = new int [this.roomsTotal];
         int x = 0;
-        for (int i=1; i<=h.floors; i++){
-            for (int j=1; j<=h.roomsPerFloor; j++){
-                if (h.roomsPerFloor>=10 && j<10){
+        for (int i=1; i<=this.floors; i++){
+            for (int j=1; j<=this.roomsPerFloor; j++){
+                if (this.roomsPerFloor>=10 && j<10){
                     Numbers [x] = Integer.parseInt(Integer.toString(i*10)+Integer.toString(j));
                 } else
                     Numbers [x] = Integer.parseInt(Integer.toString(i)+Integer.toString(j));
@@ -51,10 +51,10 @@ public class Hotel {
         return Numbers;
 
     }
-    public static int [] lableArray (int[] array, Hotel h){
+    public int [] lableArray (int[] array){
         int [] result = new int [10];
         int total = 0;
-        for (int i = 0; i<h.roomsTotal; i++){
+        for (int i = 0; i<this.roomsTotal; i++){
             for (int j=0; j < Integer.toString(array[i]).length(); j++) {
                 if (Integer.toString(array[i]).charAt(j) == '0') result[0]++;
                 if (Integer.toString(array[i]).charAt(j) == '1') result[1]++;
