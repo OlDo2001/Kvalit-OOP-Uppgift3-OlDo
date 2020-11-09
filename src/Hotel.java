@@ -1,12 +1,15 @@
 import java.util.Scanner;
 
 public class Hotel {
+    // Privata instansvariabler
     private String name;
     private int floors;
     private int roomsPerFloor;
     private int roomsTotal;
 
-    //Konstruktor
+    /**
+     * Konstruktor som definerar värderna av objekts egenskaper med hjälp av följande instansmetoder.
+     */
     public Hotel (){
         setName();
         setFloors();
@@ -28,6 +31,10 @@ public class Hotel {
             }
         }
     }
+
+    /**
+     * En instansmetod som anger antal våningar till hotelet genom terminalen
+     */
     public void setFloors (){
 
         Scanner input = new Scanner(System.in);
@@ -43,6 +50,10 @@ public class Hotel {
         }
 
     }
+
+    /**
+     * En instansmetod som anger antal rum per en våning genom terminalen
+     */
     public void setRooms (){
 
         Scanner input = new Scanner(System.in);
@@ -59,6 +70,11 @@ public class Hotel {
         this.roomsTotal = this.floors * this.roomsPerFloor;
 
     }
+
+    /**
+     * En instansmetod som skapar rumnummering, (våning nummer + rum nummer).
+     * @return numbers - En array med alla rumsnummer.
+     */
     public int[] roomsArray() {
 
         int[] numbers = new int [this.roomsTotal];
@@ -78,6 +94,13 @@ public class Hotel {
         return numbers;
 
     }
+
+    /**
+     * En instansmetod som räknar antal av varje siffra för att beställa. Skriver ut specifikationen
+     * som räknar total  antal siffror(skyltar).
+     * @param array som med alla rumsnummer.
+     * @return total är total antal skyltar.
+     */
     public int totalLables (int[] array){
         int [] result = new int [10];
         int total = 0;
@@ -104,10 +127,15 @@ public class Hotel {
         System.out.println("Total antal skyltar är: " + total);
         return total;
     }
+
+    /**
+     *En instansmetod som skriver ut objektet på ett bestämmt sätt i terminalen.
+     * @return en String  med text
+     */
     @Override
     public String toString() {
-        return " Hotel '" + this.name + '\'' +
-                " har " + this.floors + " våningar och " +
-                this.roomsPerFloor + " rum per våning.";
+        return "Hotel '" + this.name + '\'' +
+                " : " + this.floors + " våningar och " +
+                this.roomsPerFloor + " rum per våning";
     }
 }
