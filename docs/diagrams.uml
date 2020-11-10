@@ -10,7 +10,9 @@
   <notes />
   <edges />
   <settings layout="Hierarchic Group" zoom="0.9482573726541554" x="400.30138535482047" y="195.65875035340684" />
-  <SelectedNodes />
+  <SelectedNodes>
+    <node>Money</node>
+  </SelectedNodes>
   <Categories>
     <Category>Fields</Category>
     <Category>Constructors</Category>

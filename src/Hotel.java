@@ -15,7 +15,6 @@ public class Hotel {
         setFloors();
         setRooms();
     }
-
     /**
      * En instansmetod som anger ett objekt namn genom terminalen
      */
@@ -48,7 +47,6 @@ public class Hotel {
                 System.out.println("Ej heltal! Försök igen!");
             }
         }
-
     }
 
     /**
@@ -68,7 +66,6 @@ public class Hotel {
             }
         }
         this.roomsTotal = this.floors * this.roomsPerFloor;
-
     }
 
     /**
@@ -92,7 +89,6 @@ public class Hotel {
             System.out.println();
         }
         return numbers;
-
     }
 
     /**
